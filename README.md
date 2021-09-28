@@ -59,8 +59,12 @@ If tag is not provided, it will be 'latest'.
 - `docker ps` or `docker ps -a`
 
 ### Interact with running container
-- `docker exec -it container_id sh`
-- If there is an error, run this: `alias docker="winpty docker"`
+To open a shell in container:
+- `docker exec -it container_id bash`
+- If there is an error, run this: `alias docker="winpty docker"` <br>
+
+To send a command to run in container:
+- `docker exec -it container_id bash -c command`
 
 ### Download documentation in a container:
 `docker run -d -p 4000:4000 docke/docker.github.io`
@@ -73,8 +77,30 @@ If tag is not provided, it will be 'latest'.
 3. Copy the index.html file to the default location of nginx' index page:
 `docker cp index.html 3adb9f0cbb05:/usr/share/nginx/html/`
 4. Commit the change:
-`docker commit 3adb9f0cbb05 vimitre/sre_customised_nginx`
+`docker commit 3adb9f0cbb05 sre_customised_nginx`
 5. Push it to DockerHub:
 `docker push vimitre/sre_customised_nginx`
 6. Check if it worked:
 `docker run -d -p 80:80 vimitre/sre_customised_nginx`
+
+## Build an image
+- Create a `Dockerfile`:<br>
+``` bash
+# Choose image
+FROM nginx
+
+LABEL MAINTAINER=vimitre
+
+# Copy local index.html to container
+COPY index.html /usr/share/nginx/html/
+
+# port 80
+EXPOSE 80
+
+# CMD to launch the nginx web server
+CMD ["nginx", "-g", "daemon off;"]
+```
+- Build the image:<br>
+`docker build -t vimitre/sre_nginx_test:v1 .`
+- Push it:<br>
+`docker push vimitre/sre_nginx_test`
