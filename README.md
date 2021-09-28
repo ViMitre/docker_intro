@@ -138,3 +138,5 @@ CMD ["node", "app.js"]
 ```
 - Run it:<br>
 `docker run -d -p 80:3000 vimitre/sre_node_app:v1`
+
+To stop all containers: `docker rm -f $(docker ps -a -q)`
