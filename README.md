@@ -28,7 +28,8 @@ Click on the link to go to Microsoft Docs page with the latest WSL2 kernel updat
 
 ## Microservices vs monolith architecture 
 <img width="494" alt="monovsmicro" src="https://user-images.githubusercontent.com/88156993/135048402-7c7be67d-8018-4717-a7bd-3da3718a5723.png">
+<br>
 ## VM vs Docker
 <br>
-![image](https://user-images.githubusercontent.com/88156993/135048936-d711e9d9-7bc8-46ad-b582-98c84c3a9e06.png)
+<img src="https://user-images.githubusercontent.com/88156993/135048936-d711e9d9-7bc8-46ad-b582-98c84c3a9e06.png">
 
