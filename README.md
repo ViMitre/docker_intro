@@ -1,5 +1,6 @@
 # Docker
 ![image](https://user-images.githubusercontent.com/88156993/135049338-c479364d-10d6-4d84-91f6-a8ccf8757c73.png)
+<br>
 Docker is a set of platform as a service (PaaS) products that use OS-level virtualization to deliver software in packages called containers. Containers are isolated from one another and bundle their own software, libraries and configuration files; they can communicate with each other through well-defined channels. Because all of the containers share the services of a single operating system kernel, they use fewer resources than virtual machines.
 ## How to set up Docker (on Windows 10)
 1. Visit https://docs.docker.com/desktop/windows/install/
@@ -28,5 +29,6 @@ Click on the link to go to Microsoft Docs page with the latest WSL2 kernel updat
 ## Microservices vs monolith architecture 
 <img width="494" alt="monovsmicro" src="https://user-images.githubusercontent.com/88156993/135048402-7c7be67d-8018-4717-a7bd-3da3718a5723.png">
 ## VM vs Docker
+<br>
 ![image](https://user-images.githubusercontent.com/88156993/135048936-d711e9d9-7bc8-46ad-b582-98c84c3a9e06.png)
 
