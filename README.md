@@ -104,3 +104,37 @@ CMD ["nginx", "-g", "daemon off;"]
 `docker build -t vimitre/sre_nginx_test:v1 .`
 - Push it:<br>
 `docker push vimitre/sre_nginx_test`
+
+## Create a Micro-Service for the Node-App with Docker
+- Build an image for the app
+- Select `node` image
+- `LABEL`
+- `COPY` dependencies from localhost to container `app` /default location
+- Copy package.json files
+- `RUN npm install`
+- `RUN npm install express`
+- `RUN node seeds/seed.js`
+- `EXPOSE 3000`
+- `CMD ["node", "app.js"]`
+
+### Dockerfile (inside `app` directory):
+``` bash
+FROM node
+
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+
+RUN npm install -g npm@latest
+RUN npm install express
+
+# RUN node seeds/seed.js
+
+COPY . .
+
+EXPOSE 3000
+
+CMD ["node", "app.js"]
+```
+- Run it:<br>
+`docker run -d -p 80:3000 vimitre/sre_node_app:v1`
