@@ -33,3 +33,48 @@ Click on the link to go to Microsoft Docs page with the latest WSL2 kernel updat
 
 <img src="https://user-images.githubusercontent.com/88156993/135048936-d711e9d9-7bc8-46ad-b582-98c84c3a9e06.png">
 
+## Docker commands
+
+- `docker run image_name`
+- `docker build -t account_id/image_name/tag`
+- `docker push image_name`
+- `docker stop container_id`
+- `docker rmi image_name`
+- `docker rmi image_name -f`
+
+### Naming convention for images
+account_id/image_name/tag<br>
+`vimitre/app/v1`<br>
+If tag is not provided, it will be 'latest'.
+
+### Pull an image from docker hub
+- `docker pull image_name`
+- Example: `docker pull ahskhan/sparta-app-dockerised:v1`
+
+### Example of using an existing image
+- `ghost` image
+- `docker run -d -p 2368:2368 ghost`
+
+### Check container state
+- `docker ps` or `docker ps -a`
+
+### Interact with running container
+- `docker exec -it container_id sh`
+- If there is an error, run this: `alias docker="winpty docker"`
+
+### Download documentation in a container:
+`docker run -d -p 4000:4000 docke/docker.github.io`
+
+## Nginx
+`docker run -d -p 80:80 nginx`
+## Task: Customise an Nginx image
+1. Create repository on DockerHub: `sre_customised_nginx`
+2. Create a new index page
+3. Copy the index.html file to the default location of nginx' index page:
+`docker cp index.html 3adb9f0cbb05:/usr/share/nginx/html/`
+4. Commit the change:
+`docker commit 3adb9f0cbb05 vimitre/sre_customised_nginx`
+5. Push it to DockerHub:
+`docker push vimitre/sre_customised_nginx`
+6. Check if it worked:
+`docker run -d -p 80:80 vimitre/sre_customised_nginx`
