@@ -140,3 +140,8 @@ CMD ["node", "app.js"]
 `docker run -d -p 80:3000 vimitre/sre_node_app:v1`
 
 To stop all containers: `docker rm -f $(docker ps -a -q)`
+
+## Docker compose
+
+`docker compose up -d`
+`docker compose down`
