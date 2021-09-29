@@ -141,7 +141,15 @@ CMD ["node", "app.js"]
 
 To stop all containers: `docker rm -f $(docker ps -a -q)`
 
+`docker history image_name`
+
 ## Docker compose
 
 `docker compose up -d`
 `docker compose down`
+
+## Volumes
+- List available volumes: `docker volume ls`
+- Create volume: `docker volume create volume_name`
+- Inspect volume: `docker inspect volume volume_name`
+- Delete volume: `docker volume rm sre_viktor`
